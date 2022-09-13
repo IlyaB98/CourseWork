@@ -8,7 +8,7 @@ public class EmployeeBook {
         this.employees = employees;
     }
 
-    public void printEmployees(Employee[] employees) {
+    public void printEmployees() {
         for (int i = 0; i < employees.length; i++) {
             if (employees[i] == null) {
                 continue;
@@ -18,7 +18,7 @@ public class EmployeeBook {
         }
     }
 
-    public void printSumSalaryAndAverage(Employee[] employees) {
+    public void printSumSalaryAndAverage() {
         double sumSalary = 0.0;
         int amountEmployees = 0;
 
@@ -37,7 +37,7 @@ public class EmployeeBook {
                 + ", среднее значение зарплат: " + averageSalary);
     }
 
-    public void printMinSalary(Employee[] employees) {
+    public void printMinSalary() {
         double minSalary = Double.MAX_VALUE;
         String name = null;
         for (int i = 0; i < employees.length; i++) {
@@ -51,7 +51,7 @@ public class EmployeeBook {
         System.out.printf("Минимальная зарплата у сотрудника %s составляет %f рублей.\n", name, minSalary);
     }
 
-    public void printMaxSalary(Employee[] employees) {
+    public void printMaxSalary() {
         double maxSalary = Integer.MIN_VALUE;
         String name = null;
         for (int i = 0; i < employees.length; i++) {
@@ -65,7 +65,7 @@ public class EmployeeBook {
         System.out.printf("Максимальная зарплата у сотрудника %s составляет %f рублей.\n", name, maxSalary);
     }
 
-    public void printFullNameEmployees(Employee[] employees) {
+    public void printFullNameEmployees() {
         for (int i = 0; i < employees.length; i++) {
             if (employees[i] != null) {
                 System.out.println((i + 1) + ": " + employees[i].getLastName() + " " + employees[i].getFirstName() + " "
@@ -74,7 +74,7 @@ public class EmployeeBook {
         }
     }
 
-    public void indexSalary(Employee[] employees, int indexOfChange) {
+    public void indexSalary(int indexOfChange) {
         double index = indexOfChange / 100.0;
 
         for (int i = 0; i < employees.length; i++) {
@@ -84,7 +84,7 @@ public class EmployeeBook {
         }
     }
 
-    public void printMinSalaryByDepartment(Employee[] employees, int departmentNumber) {
+    public void printMinSalaryByDepartment(int departmentNumber) {
         double minSalary = Double.MAX_VALUE;
         String name = null;
         for (int i = 0; i < employees.length; i++) {
@@ -98,7 +98,7 @@ public class EmployeeBook {
         System.out.printf("Минимальная зарплата у сотрудника %d отдела %s составляет %f рублей.\n", departmentNumber, name, minSalary);
     }
 
-    public void printMaxSalaryByDepartment(Employee[] employees, int departmentNumber) {
+    public void printMaxSalaryByDepartment(int departmentNumber) {
         double maxSalary = Integer.MIN_VALUE;
         String name = null;
         for (int i = 0; i < employees.length; i++) {
@@ -112,7 +112,7 @@ public class EmployeeBook {
         System.out.printf("Максимальная зарплата у сотрудника %d отдела %s составляет %f рублей.\n", departmentNumber, name, maxSalary);
     }
 
-    public void printSumSalaryAndAverageByDepartment(Employee[] employees, int departmentNumber) {
+    public void printSumSalaryAndAverageByDepartment(int departmentNumber) {
         double sumSalary = 0.0;
         int amountEmployees = 0;
 
@@ -131,7 +131,7 @@ public class EmployeeBook {
                 sumSalary, averageSalary);
     }
 
-    public void indexSalaryOfDepartment(Employee[] employees, int departmentNumber, int indexOfChange) {
+    public void indexSalaryOfDepartment(int departmentNumber, int indexOfChange) {
         double index = indexOfChange / 100.0;
 
         for (int i = 0; i < employees.length; i++) {
@@ -141,7 +141,7 @@ public class EmployeeBook {
         }
     }
 
-    public void printFullNameEmployeesByDepartment(Employee[] employees, int departmentNumber) {
+    public void printFullNameEmployeesByDepartment(int departmentNumber) {
         System.out.println("Сотрудники " + departmentNumber + "-го отдела:");
         int sequenceNumber = 1;
         for (int i = 0; i < employees.length; i++) {
@@ -153,25 +153,25 @@ public class EmployeeBook {
         }
     }
 
-    public void printEmployeesByDepartment(Employee[] employees, int departmentNumber) {
+    public void printEmployeesByDepartment(int departmentNumber) {
         System.out.println("Сотрудники " + departmentNumber + "-го отдела:");
         int sequenceNumber = 1;
         for (int i = 0; i < employees.length; i++) {
             if (employees[i] != null && departmentNumber == employees[i].getDepartment()) {
                 String employee = employees[i].getLastName() + " " + employees[i].getFirstName() + " "
-                        + employees[i].getMiddleName() + ", зарплата " + employees[i].getSalary() + ", id " + Employee.getId();
+                        + employees[i].getMiddleName() + ", зарплата " + employees[i].getSalary() + ", id " + employees[i].getId();
                 System.out.println(sequenceNumber + ": " + employee);
                 sequenceNumber++;
             }
         }
     }
 
-    public void salaryLessThanTheSet(Employee[] employees, int setSalary) {
+    public void salaryLessThanTheSet(int setSalary) {
         System.out.println("Сотрудники с зарплатой меньше " + setSalary + " рублей:\n");
         int sequenceNumber = 1;
         for (int i = 0; i < employees.length; i++) {
             if (employees[i] != null && setSalary >= employees[i].getSalary()) {
-                System.out.println(sequenceNumber + ": id " + Employee.getId() + ", " + employees[i].getLastName() + " "
+                System.out.println(sequenceNumber + ": id " + employees[i].getId() + ", " + employees[i].getLastName() + " "
                         + employees[i].getFirstName() + " " + employees[i].getMiddleName() + ", зарплата "
                         + employees[i].getSalary());
                 sequenceNumber++;
@@ -179,12 +179,12 @@ public class EmployeeBook {
         }
     }
 
-    public void salaryAboveThanTheSet(Employee[] employees, int setSalary) {
+    public void salaryAboveThanTheSet(int setSalary) {
         System.out.println("Сотрудники с зарплатой больше (или равной) " + setSalary + " рублей:\n");
         int sequenceNumber = 1;
         for (int i = 0; i < employees.length; i++) {
             if (employees[i] != null && setSalary <= employees[i].getSalary()) {
-                System.out.println(sequenceNumber + ": id " + Employee.getId() + ", " + employees[i].getLastName() + " "
+                System.out.println(sequenceNumber + ": id " + employees[i].getId() + ", " + employees[i].getLastName() + " "
                         + employees[i].getFirstName() + " " + employees[i].getMiddleName() + ", зарплата "
                         + employees[i].getSalary());
                 sequenceNumber++;
@@ -195,7 +195,7 @@ public class EmployeeBook {
     public void addEmployee(String firstName, String middleName, String lastName, int department, int salary) {
         for (int i = 0; i < employees.length; i++) {
             if (employees[i] == null) {
-                Employee newEmployee = new Employee(firstName, middleName, lastName, department, salary, Employee.getId());
+                Employee newEmployee = new Employee(firstName, middleName, lastName, department, salary);
                 employees[i] = newEmployee;
                 break;
             }
@@ -244,7 +244,7 @@ public class EmployeeBook {
                     System.out.println("Желаете продолжить?\n1. Да.\n2. Нет.");
 
                     int answer = scanner.nextInt();
-                    if (answer < 0 || answer > 2) {
+                    if (answer < 1 || answer > 2) {
                         throw new IllegalArgumentException("Такая операция не поддерживается!");
                     }
                     switch (answer) {
@@ -257,7 +257,7 @@ public class EmployeeBook {
                 if (operation == 2 && fullName.equals(fullNameEmployee)) {
                     System.out.println("Введите новый отдел для " + fullName);
                     int newDepartment = scanner.nextInt();
-                    if (newDepartment < 0 || newDepartment > 5) {
+                    if (newDepartment < 1 || newDepartment > 5) {
                         throw new IllegalArgumentException("Данного отдела не существует!");
                     }
                     employees[i].setDepartment(newDepartment);
@@ -265,7 +265,7 @@ public class EmployeeBook {
                     System.out.println("Желаете продолжить?\n1. Да.\n2. Нет.");
 
                     int answer = scanner.nextInt();
-                    if (answer < 0 || answer > 2) {
+                    if (answer < 1 || answer > 2) {
                         throw new IllegalArgumentException("Такая операция не поддерживается!");
                     }
                     switch (answer) {
@@ -279,10 +279,10 @@ public class EmployeeBook {
         }
     }
 
-    public void listOfEmployeesByDepartment(Employee[] employees) {
+    public void listOfEmployeesByDepartment() {
         int quantityDepartment = 5;
         for (int department = 1; department <= quantityDepartment; department++) {
-            printFullNameEmployeesByDepartment(employees, department);
+            printFullNameEmployeesByDepartment(department);
             System.out.println();
         }
 

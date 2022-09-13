@@ -16,7 +16,7 @@ public class Main {
 
         employeeBook.deleteEmployee("Анастасия", "Валерьевна", "Красова");
         separator();
-        employeeBook.listOfEmployeesByDepartment(employees);
+        employeeBook.listOfEmployeesByDepartment();
         separator();
         employeeBook.editEmployee("Василий", "Васильевич", "Самойлов");
 

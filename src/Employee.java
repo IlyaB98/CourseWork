@@ -5,20 +5,16 @@ public class Employee {
     private String lastName;
     private int department;
     private double salary;
-    private static int id;
+    private static int currentId;
+    private int id;
 
-    public Employee(String firstName, String middleName, String lastName, int department, double salary, int id) {
+    public Employee(String firstName, String middleName, String lastName, int department, double salary) {
         this.firstName = firstName;
         this.middleName = middleName;
         this.lastName = lastName;
         this.department = department;
         this.salary = salary;
-        this.id = id;
-    }
-
-    public static int idNumber() {
-        id++;
-        return id;
+        this.id = ++currentId;
     }
 
     public String getFirstName() {
@@ -41,7 +37,7 @@ public class Employee {
         return salary;
     }
 
-    public static int getId() {
+    public int getId() {
         return id;
     }
 
@@ -56,6 +52,6 @@ public class Employee {
     @Override
     public String toString() {
         return "Employee: " + lastName + " " + firstName + " " + middleName + " / отдел " + department
-                + " / зарплата " + salary + " / " + "id " + idNumber();
+                + " / зарплата " + salary + " / " + "id " + getId();
     }
 }
